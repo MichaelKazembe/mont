@@ -1,40 +1,67 @@
-#ifndef _MONTY_H
-#define _MONTY_H
+#include "monty.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <ctype.h>
-
-/*--- Struct Definitions ---*/
 /**
- * struct stack_s - doubly linked list representation of a stack (or queue)
- * @n: integer
- * @prev: points to the previous element of the stack (or queue)
- * @next: points to the next element of the stack (or queue)
- *
- * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO Holberton project
+ * main - Entry point for the Monty ByteCode interpreter
+ * @argc: Number of command-line arguments
+ * @argv: Array of command-line arguments
+ * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure
  */
-typedef struct stack_s
+int main(int argc, char *argv[])
 {
-	int n;
-	struct stack_s *prev;
-	struct stack_s *next;
-} stack_t;
-/**
- * struct instruction_s - opcoode and its function
- * @opcode: the opcode
- * @f: function to handle the opcode
- *
- * Description: opcode and its function
- * for stack, queues, LIFO, FIFO Holberton project
- */
-typedef struct instruction_s
-{
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
-} instruction_t;
+	FILE *file;
+	char *line = NULL;
+	size_t len = 0;
+	unsigned int line_number = 0;
+	stack_t *stack = NULL;
+	instruction_t opcodes[] = 
+	{
+		{"push", push},
+		{"pall", pall},
+		{NULL, NULL}
+	};
 
-#endif
+	if (argc != 2)
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+
+	file = fopen(argv[1], "r");
+	if (file == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+
+	while (getline(&line, &len, file) != -1)
+	{
+		line_number++;
+		char *opcode = strtok(line, " \n");
+
+		if (opcode == NULL || opcode[0] == '#')
+			continue;
+
+		int i;
+		int valid_opcode = 0;
+
+		for (i = 0; opcodes[i].opcode != NULL; i++)
+		{
+			if (strcmp(opcode, opcodes[i].opcode) == 0)
+			{
+				opcodes[i].f(&stack, line_number);
+				valid_opcode = 1;
+				break;
+			}
+		}
+
+		if (!valid_opcode)
+		{
+			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
+			exit(EXIT_FAILURE);
+		}
+	}
+
+	free(line);
+	fclose(file);
+	return EXIT_SUCCESS;
+}
