@@ -35,8 +35,11 @@ int main(int argc, char *argv[])
 
 	while (getline(&line, &len, file) != -1)
 	{
-		line_number++;
-		char *opcode = strtok(line, " \n");
+		unsigned int line_number = 0;
+    		char *opcode;
+
+    		line_number++;
+    		opcode = strtok(line, " \n");
 
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
