@@ -1,60 +1,40 @@
-#include "monty.h"
+#ifndef _MONTY_H
+#define _MONTY_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <ctype.h>
+
+/*--- Struct Definitions ---*/
 /**
- * main - Entry point for the Monty program
- * @argc: The number of arguments passed to the program
- * @argv: An array of strings containing the arguments passed to the program
+ * struct stack_s - doubly linked list representation of a stack (or queue)
+ * @n: integer
+ * @prev: points to the previous element of the stack (or queue)
+ * @next: points to the next element of the stack (or queue)
  *
- * Return: EXIT_SUCCESS on success, or EXIT_FAILURE on failure
+ * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO Holberton project
  */
-
-int main(int argc, char **argv)
+typedef struct stack_s
 {
-    FILE *file;
-    char *line = NULL, *opcode, *arg = NULL;
-    size_t len = 0;
-    unsigned int line_number = 0;
-    instruction_t instruction;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
+} stack_t;
+/**
+ * struct instruction_s - opcoode and its function
+ * @opcode: the opcode
+ * @f: function to handle the opcode
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
+typedef struct instruction_s
+{
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
+} instruction_t;
 
-    if (argc != 2)
-    {
-        fprintf(stderr, "USAGE: monty file\n");
-        return EXIT_FAILURE;
-    }
-
-    file = fopen(argv[1], "r");
-    if (file == NULL)
-    {
-        fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-        return EXIT_FAILURE;
-    }
-
-    while (getline(&line, &len, file) != -1)
-    {
-        line_number++;
-
-        /* Parse the opcode and optional argument */
-        opcode = strtok(line, " \t\n");
-        if (opcode == NULL || opcode[0] == '#')
-            continue;
-        arg = strtok(NULL, " \t\n");
-
-        /* Search for the opcode in the instruction set */
-        instruction = get_instruction(opcode);
-        if (instruction.f == NULL)
-        {
-            fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-            free_all(&stack);
-            free(line);
-            fclose(file);
-            return EXIT_FAILURE;
-        }
-
-        /* Execute the found instruction */
-        instruction.f(&stack, line_number);
-    }
-
-    free(line);
-    fclose(file);
-    free_all(&stack);
-    return EXIT_SUCCESS;
-}
+#endif
