@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * is_digit - Checks if a string represents a valid number
+ * is_integer - Checks if a string represents a valid number
  * @str: The string to check
  * Return: true if the string is a valid number, false otherwise
  */
-bool is_digit(const char *str)
+bool is_integer(const char *str)
 {
      int i = 0;
      bool has_digits = false;
