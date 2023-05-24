@@ -33,5 +33,6 @@ void pall(stack_t **stack);
 int is_integer(char *str);
 stack_t *add_node(stack_t **stack, int n);
 void free_all(stack_t **stack);
+instruction_t get_instruction(char *opcode);
 
 #endif /* _MONTY_H */
