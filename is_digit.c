@@ -7,15 +7,14 @@
  */
 bool is_digit(const char *str)
 {
+     int i = 0;
+     bool has_digits = false;
+    
     if (str == NULL || *str == '\0')
         return false;
 
-    int i = 0;
-
     if (str[0] == '-' || str[0] == '+')
         i++;
-
-    bool has_digits = false;
 
     for (; str[i] != '\0'; i++)
     {
