@@ -7,15 +7,13 @@
  */
 int is_integer(char *str)
 {
+    int i = 0;
+    int has_digits = 0;
     if (str == NULL || *str == '\0')
         return 0;
 
-    int i = 0;
-
     if (str[0] == '-' || str[0] == '+')
         i++;
-
-    int has_digits = 0;
 
     for (; str[i] != '\0'; i++)
     {
