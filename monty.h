@@ -1,7 +1,5 @@
 #ifndef _MONTY_H
 #define _MONTY_H
-#define USAGE "USAGE: monty file\n"
-extern instruction_t instructions[];
 
 #include <stdio.h>
 #include <stdlib.h>
