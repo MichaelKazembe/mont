@@ -6,7 +6,8 @@ int main(int argc, char **argv) {
         exit(EXIT_FAILURE);
     }
 
-    char *filepath = argv[1];
+    char *filepath;
+    filepath = argv[1];
 
     FILE *file = fopen(filepath, "r");
     if (file == NULL) {
