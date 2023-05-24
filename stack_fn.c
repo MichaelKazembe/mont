@@ -1,3 +1,5 @@
+#include "monty.h"
+
 /* Definition of push and pall functions */
 
 /**
