@@ -21,14 +21,14 @@ int main(int argc, char **argv)
     if (argc != 2)
     {
         fprintf(stderr, "USAGE: monty file\n");
-        return (EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
 
     file = fopen(argv[1], "r");
     if (file == NULL)
     {
         fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-        return (EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
 
     while (getline(&line, &len, file) != -1)
@@ -49,17 +49,17 @@ int main(int argc, char **argv)
             free_all(&stack);
             free(line);
             fclose(file);
-            return (EXIT_FAILURE);
+            return EXIT_FAILURE;
         }
 
         /* Execute the found instruction */
-        instruction.f(&stack, line_number, arg);
+        instruction.f(&stack, line_number);
     }
 
     free(line);
     fclose(file);
     free_all(&stack);
-    return (EXIT_SUCCESS);
+    return EXIT_SUCCESS;
 }
 
 /**
@@ -96,12 +96,12 @@ instruction_t get_instruction(char *opcode)
     instruction_t null_instruction = {"", NULL};
 
     if (opcode == NULL)
-        return (null_instruction);
+        return null_instruction;
 
     for (i = 0; instructions[i].opcode != NULL; i++)
     {
         if (strcmp(instructions[i].opcode, opcode) == 0)
             return instructions[i];
     }
-    return (null_instruction);
+    return null_instruction;
 }
