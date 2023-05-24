@@ -1,5 +1,6 @@
 #ifndef _MONTY_H
 #define _MONTY_H
+#define USAGE "USAGE: monty file\n"
 
 #include <stdio.h>
 #include <stdlib.h>
