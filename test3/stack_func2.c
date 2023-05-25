@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
- * swap_ - swap top of stack y second top stack
- * @stack: pointer to lists for monty stack
+ * swap_ - swaps top ele. with 2nd top stack
+ * @stack: pointer to lists for monty
  * @line_number: number of line opcode occurs on
  */
 
@@ -22,8 +22,8 @@ void swap_(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * add_ - add top of stack y second top stack
- * @stack: pointer to lists for monty stack
+ * add_ - add top ele. with 2nd top stack
+ * @stack: pointer to lists for monty
  * @line_number: number of line opcode occurs on
  */
 
@@ -56,8 +56,8 @@ void add_(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * nop_ - nop top of stack y second top stack
- * @stack: pointer to lists for monty stack
+ * nop_ - nop top ele. with 2nd top stack
+ * @stack: pointer to lists for monty
  * @line_number: number of line opcode occurs on
  */
 
@@ -68,9 +68,9 @@ void nop_(__attribute__ ((unused))stack_t **stack,
 }
 
 /**
- * pchar_ - prints the ASCII value of a number
+ * pchar_ - prints the ASCII value of integer
  * @stack: pointer to the top of the stack
- * @line_number: the index of the current line
+ * @line_number: current line index
  *
  */
 void pchar_(stack_t **stack, unsigned int line_number)
@@ -82,7 +82,7 @@ void pchar_(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		free(var_global.buffer);
 		fclose(var_global.file);
-		free_dlistint(*stack);
+		free_dlist_int(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -92,7 +92,7 @@ void pchar_(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		free(var_global.buffer);
 		fclose(var_global.file);
-		free_dlistint(*stack);
+		free_dlist_int(*stack);
 		exit(EXIT_FAILURE);
 	}
 
