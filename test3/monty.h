@@ -71,11 +71,11 @@ void nop_(stack_t **stack, unsigned int line_number);
 void rotl_(stack_t **stack, unsigned int line_number);
 void rotr_(stack_t **stack, unsigned int line_number);
 
-/*Functions string ascci */
-void _pchar(stack_t **stack, unsigned int line_number);
-void _pstr(stack_t **stack, unsigned int line_number);
+/*string ASCII functions*/
+void pchar_(stack_t **stack, unsigned int line_number);
+void pstr_(stack_t **stack, unsigned int line_number);
 
-/*Functions math*/
+/*math functions*/
 void sub_(stack_t **stack, unsigned int line_number);
 void add_(stack_t **stack, unsigned int line_number);
 void mul_(stack_t **stack, unsigned int line_number);
