@@ -10,7 +10,7 @@
 #include <ctype.h>
 
 /* Data Structures */
-extern int push_arg;
+extern int push_args;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -43,7 +43,7 @@ typedef struct instruction_s
 /**
  * struct global_variable - opcoode and its function
  * @file: the opcode
- * @push_arg: function to handle the opcode
+ * @push_args: function to handle the opcode
  * @buffer: pointer to
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO Holberton project
@@ -51,7 +51,7 @@ typedef struct instruction_s
 typedef struct global_variable
 {
 	FILE *file;
-	int push_arg;
+	int push_args;
 	char *buffer;
 } global_var;
 
