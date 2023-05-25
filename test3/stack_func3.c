@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
- * pstr_ - mod top of stack y second top stack
- * @stack: pointer to lists for monty stack
+ * pstr_ - mod top ele. with 2nd top stack
+ * @stack: pointer to lists for monty 
  * @line_number: number of line opcode occurs on
  */
 void pstr_(stack_t **stack, unsigned int line_number)
@@ -25,8 +25,8 @@ void pstr_(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * rotl_ - mod top of stack y second top stack
- * @stack: pointer to lists for monty stack
+ * rotl_ - mod top ele. with 2nd top stack
+ * @stack: pointer to lists for monty 
  * @line_number: number of line opcode occurs on
  */
 void rotl_(stack_t **stack, unsigned int line_number)
@@ -51,8 +51,8 @@ void rotl_(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * rotr_ - mod top of stack y second top stacks
- * @stack: pointer to lists for monty stack
+ * rotr_ - mod top ele. with 2nd top stack
+ * @stack: pointer to lists for monty 
  * @line_number: number of line opcode occurs on
  */
 void rotr_(stack_t **stack, unsigned int line_number)
