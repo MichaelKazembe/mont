@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * _sub - sub top of stack y second top stack
+ * sub_ - sub top of stack y second top stack
  * @stack: pointer to lists for monty stack
  * @line_number: number of line opcode occurs on
  */
-void _sub(stack_t **stack, unsigned int line_number)
+void sub_(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
 	int sub = 0, i = 0;
@@ -28,17 +28,17 @@ void _sub(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	sub = (*stack)->next->n - (*stack)->n;
-	_pop(stack, line_number);
+	pop_(stack, line_number);
 
 	(*stack)->n = sub;
 }
 
 /**
- * _mul - mul top of stack y second top stack
+ * mul_ - mul top of stack y second top stack
  * @stack: pointer to lists for monty stack
  * @line_number: number of line opcode occurs on
  */
-void _mul(stack_t **stack, unsigned int line_number)
+void mul_(stack_t **stack, unsigned int line_number)
 {
 	int aux;
 
@@ -53,17 +53,17 @@ void _mul(stack_t **stack, unsigned int line_number)
 	else
 	{
 		aux = (*stack)->n;
-		_pop(stack, line_number);
+		pop_(stack, line_number);
 		(*stack)->n *= aux;
 	}
 }
 
 /**
- * _div - div top of stack y second top stack
+ * div_ - div top of stack y second top stack
  * @stack: pointer to lists for monty stack
  * @line_number: number of line opcode occurs on
  */
-void _div(stack_t **stack, unsigned int line_number)
+void div_(stack_t **stack, unsigned int line_number)
 {
 	int div = 0;
 
@@ -86,17 +86,17 @@ void _div(stack_t **stack, unsigned int line_number)
 	else
 	{
 		div = (*stack)->n;
-		_pop(stack, line_number);
+		pop_(stack, line_number);
 		(*stack)->n /= div;
 	}
 }
 
 /**
- * _mod - mod top of stack y second top stack
+ * mod_ - mod top of stack y second top stack
  * @stack: pointer to lists for monty stack
  * @line_number: number of line opcode occurs on
  */
-void _mod(stack_t **stack, unsigned int line_number)
+void mod_(stack_t **stack, unsigned int line_number)
 {
 	int mod = 0;
 
@@ -119,7 +119,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 	else
 	{
 		mod = (*stack)->n;
-		_pop(stack, line_number);
+		pop_(stack, line_number);
 		(*stack)->n %= mod;
 	}
 }
