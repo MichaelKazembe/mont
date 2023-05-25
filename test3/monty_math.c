@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
- * sub_ - sub top of stack y second top stack
+ * sub_ - subtracts top ele. of stack from 2nd top ele.
  * @stack: pointer to lists for monty stack
- * @line_number: number of line opcode occurs on
+ * @line_number: number of line opcode occurs
  */
 void sub_(stack_t **stack, unsigned int line_number)
 {
