@@ -16,7 +16,7 @@ void read_file(char *filename, stack_t **stack)
 
 	varg.file = fopen(filename, "r");
 
-	if (var_global.file == NULL)
+	if (varg.file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
