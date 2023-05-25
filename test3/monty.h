@@ -62,25 +62,25 @@ typedef void (*instruct_func)(stack_t **stack, unsigned int line_number);
 instruct_func get_op_func(char *str);
 
 /* Monty Functions */
-void pall(stack_t **stack, unsigned int line_number);
-void _push(stack_t **stack, unsigned int line_number);
-void _pint(stack_t **stack, unsigned int line_number);
-void _pop(stack_t **stack, unsigned int line_number);
-void _swap(stack_t **stack, unsigned int line_number);
-void _nop(stack_t **stack, unsigned int line_number);
-void _rotl(stack_t **stack, unsigned int line_number);
-void _rotr(stack_t **stack, unsigned int line_number);
+void pall_(stack_t **stack, unsigned int line_number);
+void push_(stack_t **stack, unsigned int line_number);
+void pint_(stack_t **stack, unsigned int line_number);
+void pop_(stack_t **stack, unsigned int line_number);
+void swap_(stack_t **stack, unsigned int line_number);
+void nop_(stack_t **stack, unsigned int line_number);
+void rotl_(stack_t **stack, unsigned int line_number);
+void rotr_(stack_t **stack, unsigned int line_number);
 
 /*Functions string ascci */
 void _pchar(stack_t **stack, unsigned int line_number);
 void _pstr(stack_t **stack, unsigned int line_number);
 
 /*Functions math*/
-void _sub(stack_t **stack, unsigned int line_number);
-void _add(stack_t **stack, unsigned int line_number);
-void _mul(stack_t **stack, unsigned int line_number);
-void _div(stack_t **stack, unsigned int line_number);
-void _mod(stack_t **stack, unsigned int line_number);
+void sub_(stack_t **stack, unsigned int line_number);
+void add_(stack_t **stack, unsigned int line_number);
+void mul_(stack_t **stack, unsigned int line_number);
+void div_(stack_t **stack, unsigned int line_number);
+void mod_(stack_t **stack, unsigned int line_number);
 
 /*Utility functions*/
 void free_dlistint(stack_t *head);
