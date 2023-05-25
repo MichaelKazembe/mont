@@ -9,9 +9,9 @@ void read_file(char *filename, stack_t **stack)
 	char *line;
 	size_t i = 0;
 	int line_count = 1;
-	instruct_func s;
+	instruct_func st;
 	int check;
-	int read;
+	int readd;
 
 
 	var_global.file = fopen(filename, "r");
@@ -22,21 +22,21 @@ void read_file(char *filename, stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 
-	while ((read = getline(&var_global.buffer, &i, var_global.file)) != -1)
+	while ((readd = getline(&var_global.buffer, &i, var_global.file)) != -1)
 	{
-		line = parse_line(var_global.buffer, stack, line_count);
+		line = parse_line_(var_global.buffer, stack, line_count);
 		if (line == NULL || line[0] == '#')
 		{
 			line_count++;
 			continue;
 		}
-		s = get_opcod_func(line);
-		if (s == NULL)
+		st = get_opcod_func(line);
+		if (st == NULL)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_count, line);
 			exit(EXIT_FAILURE);
 		}
-		s(stack, line_count);
+		st(stack, line_count);
 		line_count++;
 	}
 	free(var_global.buffer);
@@ -109,23 +109,23 @@ int is_integer(char *str)
 }
 
 /**
- * parse_line - parses a line for an opcode and arguments
+ * parse_line_ - parses a line for an opcode and arguments
  * @line: the line to be parsed
  * @stack: pointer to the head of the stack
  * @line_number: the current line number
  * Return: returns the opcode or null on failure
  */
-char *parse_line(char *line, stack_t **stack, unsigned int line_number)
+char *parse_line_(char *line, stack_t **stack, unsigned int line_number)
 {
-	char *op_code, *push, *arg;
+	char *opcode, *push, *arg;
 	(void)stack;
 
 	push = "push";
-	op_code = strtok(line, "\n ");
-	if (op_code == NULL)
+	opcode = strtok(line, "\n ");
+	if (opcode == NULL)
 		return (NULL);
 
-	if (strcmp(op_code, push) == 0)
+	if (strcmp(opcode, push) == 0)
 	{
 		arg = strtok(NULL, "\n ");
 		if (is_integer(arg) == 1 && arg != NULL)
@@ -138,5 +138,5 @@ char *parse_line(char *line, stack_t **stack, unsigned int line_number)
 			exit(EXIT_FAILURE);
 		}
 	}
-	return (op_code);
+	return (opcode);
 }
