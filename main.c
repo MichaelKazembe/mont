@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 		int valid_opcode = 0;
 
 		line_number++;
-		opcode = strtok(line, " \n");
+		opcode = strtok(line, " \n \t");
 
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
