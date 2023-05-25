@@ -113,7 +113,7 @@ void mod_(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		free(varg.buffer);
 		fclose(varg.file);
-		free_dlis_tint(*stack);
+		free_dlist_int(*stack);
 		exit(EXIT_FAILURE);
 	}
 	else
