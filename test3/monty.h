@@ -85,7 +85,7 @@ void mod_(stack_t **stack, unsigned int line_number);
 
 /*Utility functions*/
 void free_dlist_int(stack_t *head);
-void dobfree(stack_t **stack);
-void dobfree2(stack_t **stack);
+void dob_free1(stack_t **stack);
+void dob_free2(stack_t **stack);
 int isalpha_(int c);
 #endif
