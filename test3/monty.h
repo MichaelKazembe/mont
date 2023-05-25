@@ -59,8 +59,8 @@ extern global_var var_global;
 
 void read_file(char *filename, stack_t **stack);
 char *parse_line_(char *line, stack_t **stack, unsigned int line_number);
-typedef void (*instruct_func)(stack_t **stack, unsigned int line_number);
-instruct_func get_opcod_func(char *str);
+typedef void (*instructs_func)(stack_t **stack, unsigned int line_number);
+instructs_func get_opcod_func(char *str);
 
 /* Monty Functions */
 void pall_(stack_t **stack, unsigned int line_number);
