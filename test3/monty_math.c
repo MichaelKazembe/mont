@@ -3,7 +3,7 @@
 /**
  * sub_ - subtracts top ele. of stack from 2nd top ele.
  * @stack: pointer to lists for monty stack
- * @line_number: number of line opcode occurs
+ * @line_number: line num opcode occurs on
  */
 void sub_(stack_t **stack, unsigned int line_number)
 {
@@ -34,9 +34,9 @@ void sub_(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mul_ - mul top of stack y second top stack
+ * mul_ - multiple top ele. of stack y 2nd top ele.
  * @stack: pointer to lists for monty stack
- * @line_number: number of line opcode occurs on
+ * @line_number: line num opcode occurs on
  */
 void mul_(stack_t **stack, unsigned int line_number)
 {
@@ -47,7 +47,7 @@ void mul_(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		free(var_global.buffer);
 		fclose(var_global.file);
-		free_dlistint(*stack);
+		free_dlist_int(*stack);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -59,9 +59,9 @@ void mul_(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div_ - div top of stack y second top stack
+ * div_ - divide top ele. of stack y 2nd top ele.
  * @stack: pointer to lists for monty stack
- * @line_number: number of line opcode occurs on
+ * @line_number: line num opcode occurs on
  */
 void div_(stack_t **stack, unsigned int line_number)
 {
@@ -72,7 +72,7 @@ void div_(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 		free(var_global.buffer);
 		fclose(var_global.file);
-		free_dlistint(*stack);
+		free_dlist_int(*stack);
 		exit(EXIT_FAILURE);
 	}
 	else if ((*stack)->n == 0)
@@ -80,7 +80,7 @@ void div_(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		free(var_global.buffer);
 		fclose(var_global.file);
-		free_dlistint(*stack);
+		free_dlist_int(*stack);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -92,9 +92,9 @@ void div_(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mod_ - mod top of stack y second top stack
+ * mod_ - mod top ele. of stack y 2nd top ele.
  * @stack: pointer to lists for monty stack
- * @line_number: number of line opcode occurs on
+ * @line_number: line num opcode occurs on
  */
 void mod_(stack_t **stack, unsigned int line_number)
 {
@@ -105,7 +105,7 @@ void mod_(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
 		free(var_global.buffer);
 		fclose(var_global.file);
-		free_dlistint(*stack);
+		free_dlist_int(*stack);
 		exit(EXIT_FAILURE);
 	}
 	else if ((*stack)->n == 0)
@@ -113,7 +113,7 @@ void mod_(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		free(var_global.buffer);
 		fclose(var_global.file);
-		free_dlistint(*stack);
+		free_dlis_tint(*stack);
 		exit(EXIT_FAILURE);
 	}
 	else
