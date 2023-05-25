@@ -1,7 +1,8 @@
 #include "monty.h"
 global_var var_global;
+
 /**
- * main - main driver func for monty program
+ * main - main driver func for program
  * @ac: int num of args
  * @av: opcode file
  * Return: 0
