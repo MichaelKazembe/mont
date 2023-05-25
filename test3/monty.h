@@ -2,13 +2,14 @@
 #define _MONTY_H
 #define _POSIX_C_SOURCE 200809L
 
+/*Header Files*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <ctype.h>
 
-/* Data Structured */
+/* Data Structures */
 extern int push_arg;
 
 /**
