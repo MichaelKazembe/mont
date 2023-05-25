@@ -1,5 +1,5 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef _MONTY_H
+#define _MONTY_H
 #define _POSIX_C_SOURCE 200809L
 
 #include <stdio.h>
@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <ctype.h>
 
-/*--- Struct Definitions ---*/
+/* Data Structured */
 extern int push_arg;
 
 /**
@@ -61,7 +61,7 @@ char *parse_line(char *line, stack_t **stack, unsigned int line_number);
 typedef void (*instruct_func)(stack_t **stack, unsigned int line_number);
 instruct_func get_op_func(char *str);
 
-/*Fuxntions Monty*/
+/* Monty Functions */
 void _pall(stack_t **stack, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
 void _pint(stack_t **stack, unsigned int line_number);
