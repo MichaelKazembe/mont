@@ -9,7 +9,7 @@ void read_file(char *filename, stack_t **stack)
 	char *line;
 	size_t i = 0;
 	int line_count = 1;
-	instruct_func st;
+	instructs_func st;
 	int check;
 	int readd;
 
@@ -50,7 +50,7 @@ void read_file(char *filename, stack_t **stack)
  * @str: the actual opcode
  * Return: returns a funcs, or NULL on failure
  */
-instruct_func get_opcod_func(char *str)
+instructs_func get_opcod_func(char *str)
 {
 	int i;
 
