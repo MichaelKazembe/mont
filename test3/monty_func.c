@@ -14,7 +14,7 @@ void read_file(char *filename, stack_t **stack)
 	int readd;
 
 
-	var_global.file = fopen(filename, "r");
+	varg.file = fopen(filename, "r");
 
 	if (var_global.file == NULL)
 	{
@@ -22,9 +22,9 @@ void read_file(char *filename, stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 
-	while ((readd = getline(&var_global.buffer, &i, var_global.file)) != -1)
+	while ((readd = getline(&varg.buffer, &i, varg.file)) != -1)
 	{
-		line = parse_line_(var_global.buffer, stack, line_count);
+		line = parse_line_(varg.buffer, stack, line_count);
 		if (line == NULL || line[0] == '#')
 		{
 			line_count++;
@@ -39,8 +39,8 @@ void read_file(char *filename, stack_t **stack)
 		st(stack, line_count);
 		line_count++;
 	}
-	free(var_global.buffer);
-	check = fclose(var_global.file);
+	free(varg.buffer);
+	check = fclose(varg.file);
 	if (check == -1)
 		exit(-1);
 }
@@ -130,7 +130,7 @@ char *parse_line_(char *line, stack_t **stack, unsigned int line_number)
 		arg = strtok(NULL, "\n ");
 		if (is_integer(arg) == 1 && arg != NULL)
 		{
-			var_global.push_args = atoi(arg);
+			varg.push_args = atoi(arg);
 		}
 		else
 		{
