@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * push_ - pushes integer to a stack
- * @stack: linked lists 
+ * @stack: linked lists
  * @line_number: line num opcode occurs on
  */
 void push_(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
@@ -43,7 +43,7 @@ void pall_(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
 
 /**
  * _pint - print integer a top of stack
- * @stack: pointer to linked list 
+ * @stack: pointer to linked list
  * @line_number: line num opcode occurs on
  *
  */
