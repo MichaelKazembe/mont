@@ -30,7 +30,7 @@ void read_file(char *filename, stack_t **stack)
 			line_count++;
 			continue;
 		}
-		s = get_op_func(line);
+		s = get_opcod_func(line);
 		if (s == NULL)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_count, line);
@@ -46,11 +46,11 @@ void read_file(char *filename, stack_t **stack)
 }
 
 /**
- * get_op_func -  checks opcode & returns the correct func
+ * get_opcod_func -  checks opcode & returns the correct func
  * @str: the actual opcode
  * Return: returns a funcs, or NULL on failure
  */
-instruct_func get_op_func(char *str)
+instruct_func get_opcod_func(char *str)
 {
 	int i;
 
