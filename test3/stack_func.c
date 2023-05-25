@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * push_ - push integer to a stack
+ * push_ - pushes integer to a stack
  * @stack: linked lists 
  * @line_number: line num opcode occurs on
  */
@@ -16,7 +16,7 @@ void push_(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	top->n = var_global.push_arg;
+	top->n = var_global.push_args;
 	top->next = *stack;
 	top->prev = NULL;
 	if (*stack != NULL)
@@ -31,13 +31,13 @@ void push_(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
  */
 void pall_(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
 {
-	stack_t *runner;
+	stack_t *run;
 
-	runner = *stack;
-	while (runner != NULL)
+	run = *stack;
+	while (run != NULL)
 	{
-		printf("%d\n", runner->n);
-		runner = runner->next;
+		printf("%d\n", run->n);
+		run = run->next;
 	}
 }
 
@@ -49,15 +49,15 @@ void pall_(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
  */
 void pint_(stack_t **stack, unsigned int line_number)
 {
-	stack_t *runner;
+	stack_t *run;
 
-	runner = *stack;
-	if (runner == NULL)
+	run = *stack;
+	if (run == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", runner->n);
+	printf("%d\n", run->n);
 }
 
 /**
@@ -88,12 +88,12 @@ void pop_(stack_t **stack, unsigned int line_number)
  */
 void free_dlist_int(stack_t *head)
 {
-	stack_t *tmp;
+	stack_t *temp;
 
 	while (head != NULL)
 	{
-		tmp = head->next;
+		temp = head->next;
 		free(head);
-		head = tmp;
+		head = temp;
 	}
 }
