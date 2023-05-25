@@ -1,11 +1,11 @@
 #include "monty.h"
 /**
- * _swap - swap top of stack y second top stack
+ * swap_ - swap top of stack y second top stack
  * @stack: pointer to lists for monty stack
  * @line_number: number of line opcode occurs on
  */
 
-void _swap(stack_t **stack, unsigned int line_number)
+void swap_(stack_t **stack, unsigned int line_number)
 {
 	stack_t *runner;
 	int tmp;
@@ -22,12 +22,12 @@ void _swap(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _add - add top of stack y second top stack
+ * add_ - add top of stack y second top stack
  * @stack: pointer to lists for monty stack
  * @line_number: number of line opcode occurs on
  */
 
-void _add(stack_t **stack, unsigned int line_number)
+void add_(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
 	int sum = 0, i = 0;
@@ -50,13 +50,13 @@ void _add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	sum = (*stack)->next->n + (*stack)->n;
-	_pop(stack, line_number);
+	pop_(stack, line_number);
 
 	(*stack)->n = sum;
 }
 
 /**
- * _nop - nop top of stack y second top stack
+ * nop_ - nop top of stack y second top stack
  * @stack: pointer to lists for monty stack
  * @line_number: number of line opcode occurs on
  */
@@ -68,12 +68,12 @@ void _nop(__attribute__ ((unused))stack_t **stack,
 }
 
 /**
- * _pchar - prints the ASCII value of a number
+ * pchar_ - prints the ASCII value of a number
  * @stack: pointer to the top of the stack
  * @line_number: the index of the current line
  *
  */
-void _pchar(stack_t **stack, unsigned int line_number)
+void pchar_(stack_t **stack, unsigned int line_number)
 {
 	int val;
 
@@ -101,11 +101,11 @@ void _pchar(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _isalpha - checks if int is in alphabet
+ * isalpha_ - checks if int is in alphabet
  * @c: int
  * Return: 1 if yes, 0 if no
  */
-int _isalpha(int c)
+int isalpha_(int c)
 {
 	if ((c >= 97 && c <= 122) || (c >= 65 && c <= 90))
 		return (1);
