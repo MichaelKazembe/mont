@@ -16,7 +16,7 @@ void push_(stack_t **stack, __attribute__ ((unused))unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	top->n = var_global.push_args;
+	top->n = varg.push_args;
 	top->next = *stack;
 	top->prev = NULL;
 	if (*stack != NULL)
