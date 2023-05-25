@@ -55,7 +55,7 @@ typedef struct global_variable
 	char *buffer;
 } global_var;
 
-extern global_var var_global;
+extern global_var varg;
 
 void read_file(char *filename, stack_t **stack);
 char *parse_line_(char *line, stack_t **stack, unsigned int line_number);
