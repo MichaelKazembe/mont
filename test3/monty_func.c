@@ -10,7 +10,7 @@ void read_file(char *filename, stack_t **stack)
 	size_t i = 0;
 	int line_count = 1;
 	instructs_func st;
-	int check;
+	int checks;
 	int readd;
 
 
@@ -41,7 +41,7 @@ void read_file(char *filename, stack_t **stack)
 	}
 	free(varg.buffer);
 	check = fclose(varg.file);
-	if (check == -1)
+	if (checks == -1)
 		exit(-1);
 }
 
@@ -117,7 +117,9 @@ int is_integer(char *str)
  */
 char *parse_line_(char *line, stack_t **stack, unsigned int line_number)
 {
-	char *opcode, *push, *arg;
+	char *opcode;
+	char *push;
+	char *arg;
 	(void)stack;
 
 	push = "push";
