@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
- * read_file - reads a bytecode file and runs commands
- * @filename: pathname to file
+ * read_file - reads a bytecode file & runs cmds
+ * @filename: pathname to a file
  * @stack: pointer to the top of the stack
  */
 void read_file(char *filename, stack_t **stack)
@@ -46,9 +46,9 @@ void read_file(char *filename, stack_t **stack)
 }
 
 /**
- * get_op_func -  checks opcode and returns the correct function
- * @str: the opcode
- * Return: returns a functions, or NULL on failure
+ * get_op_func -  checks opcode & returns the correct func
+ * @str: the actual opcode
+ * Return: returns a funcs, or NULL on failure
  */
 instruct_func get_op_func(char *str)
 {
@@ -83,11 +83,11 @@ instruct_func get_op_func(char *str)
 }
 
 /**
- * isnumber - checks if a string is a number
+ * is_integer - checks if a string is a number
  * @str: string being passed
  * Return: returns 1 if string is a number, 0 otherwise
  */
-int isnumber(char *str)
+int is_integer(char *str)
 {
 	unsigned int i;
 
@@ -128,7 +128,7 @@ char *parse_line(char *line, stack_t **stack, unsigned int line_number)
 	if (strcmp(op_code, push) == 0)
 	{
 		arg = strtok(NULL, "\n ");
-		if (isnumber(arg) == 1 && arg != NULL)
+		if (is_integer(arg) == 1 && arg != NULL)
 		{
 			var_global.push_arg = atoi(arg);
 		}
