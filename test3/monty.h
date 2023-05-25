@@ -5,8 +5,8 @@
 /*Header Files*/
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
+#include <string.h>
 #include <ctype.h>
 
 /* Data Structures */
@@ -58,7 +58,7 @@ typedef struct global_variable
 extern global_var var_global;
 
 void read_file(char *filename, stack_t **stack);
-char *parse_line(char *line, stack_t **stack, unsigned int line_number);
+char *parse_line_(char *line, stack_t **stack, unsigned int line_number);
 typedef void (*instruct_func)(stack_t **stack, unsigned int line_number);
 instruct_func get_opcod_func(char *str);
 
