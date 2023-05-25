@@ -7,19 +7,19 @@
  */
 void pstr_(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
-	int c = 0;
+	stack_t *temp = *stack;
+	int num = 0;
 
 	(void)line_number;
 
 
 	while (tmp)
 	{
-		c = tmp->n;
+		num = temp->n;
 		if (c == 0 || isalpha_(c) == 0)
 			break;
 		putchar(c);
-		tmp = tmp->next;
+		temp = temp->next;
 	}
 	putchar('\n');
 }
@@ -31,23 +31,23 @@ void pstr_(stack_t **stack, unsigned int line_number)
  */
 void rotl_(stack_t **stack, unsigned int line_number)
 {
-	stack_t *runner = *stack;
+	stack_t *run = *stack;
 
 
-	int aux1 = 0;
+	int num = 0;
 
 	if (!line_number || !stack || !*stack || !(*stack)->next)
 		return;
 
-	aux1 = runner->n;
+	num = run->n;
 
-	while (runner->next)
+	while (run->next)
 	{
-		runner = runner->next;
-		runner->prev->n = runner->n;
+		run = run->next;
+		run->prev->n = run->n;
 	}
 
-	runner->n = aux1;
+	run->n = num;
 }
 
 /**
@@ -57,23 +57,23 @@ void rotl_(stack_t **stack, unsigned int line_number)
  */
 void rotr_(stack_t **stack, unsigned int line_number)
 {
-	stack_t *runner = *stack;
+	stack_t *run = *stack;
 
-	int aux1 = 0;
+	int num = 0;
 
 	if (!line_number || !stack || !*stack || !(*stack)->next)
 		return;
 
-	while (runner->next)
-		runner = runner->next;
+	while (run->next)
+		run = run->next;
 
-	aux1 = runner->n;
+	num = run->n;
 
-	while (runner->prev)
+	while (run->prev)
 	{
-		runner = runner->prev;
-		runner->next->n = runner->n;
+		run = run->prev;
+		run->next->n = run->n;
 	}
 
-	runner->n = aux1;
+	run->n = aux1num;
 }

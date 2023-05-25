@@ -7,18 +7,18 @@
 
 void swap_(stack_t **stack, unsigned int line_number)
 {
-	stack_t *runner;
-	int tmp;
+	stack_t *run;
+	int temp;
 
-	runner = *stack;
-	if (runner == NULL || runner->next == NULL)
+	run = *stack;
+	if (run == NULL || run->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	tmp = runner->n;
-	runner->n = runner->next->n;
-	runner->next->n = tmp;
+	temp = run->n;
+	run->n = run->next->n;
+	run->next->n = temp;
 }
 
 /**
@@ -29,18 +29,19 @@ void swap_(stack_t **stack, unsigned int line_number)
 
 void add_(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
-	int sum = 0, i = 0;
+	stack_t *temp = *stack;
+	int sum = 0; 
+	int i = 0;
 
-	if (tmp == NULL)
+	if (temp == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	while (tmp)
+	while (temp)
 	{
-		tmp = tmp->next;
+		temp = temp->next;
 		i++;
 	}
 
@@ -75,7 +76,7 @@ void nop_(__attribute__ ((unused))stack_t **stack,
  */
 void pchar_(stack_t **stack, unsigned int line_number)
 {
-	int val;
+	int num;
 
 	if (stack == NULL || *stack == NULL)
 	{
@@ -86,8 +87,8 @@ void pchar_(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	val = (*stack)->n;
-	if (val > 127 || val < 0)
+	num = (*stack)->n;
+	if (num > 127 || num < 0)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		free(varg.buffer);
@@ -96,7 +97,7 @@ void pchar_(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	putchar(val);
+	putchar(num);
 	putchar('\n');
 }
 

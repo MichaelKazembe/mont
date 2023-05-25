@@ -68,17 +68,17 @@ void pint_(stack_t **stack, unsigned int line_number)
  */
 void pop_(stack_t **stack, unsigned int line_number)
 {
-	stack_t *nodo = *stack;
+	stack_t *no_do = *stack;
 
 	if (stack == NULL || *stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	*stack = nodo->next;
+	*stack = no_do->next;
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
-	free(nodo);
+	free(no_do);
 }
 
 /**

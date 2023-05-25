@@ -7,18 +7,19 @@
  */
 void sub_(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
-	int sub = 0, i = 0;
+	stack_t *temp = *stack;
+	int sub = 0;
+	int i = 0;
 
-	if (tmp == NULL)
+	if (temp == NULL)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	while (tmp)
+	while (temp)
 	{
-		tmp = tmp->next;
+		temp = temp->next;
 		i++;
 	}
 
@@ -40,7 +41,7 @@ void sub_(stack_t **stack, unsigned int line_number)
  */
 void mul_(stack_t **stack, unsigned int line_number)
 {
-	int aux;
+	int num;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -52,9 +53,9 @@ void mul_(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		aux = (*stack)->n;
+		num = (*stack)->n;
 		pop_(stack, line_number);
-		(*stack)->n *= aux;
+		(*stack)->n *= num;
 	}
 }
 
@@ -65,7 +66,7 @@ void mul_(stack_t **stack, unsigned int line_number)
  */
 void div_(stack_t **stack, unsigned int line_number)
 {
-	int div = 0;
+	int i = 0;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -85,9 +86,9 @@ void div_(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		div = (*stack)->n;
+		i = (*stack)->n;
 		pop_(stack, line_number);
-		(*stack)->n /= div;
+		(*stack)->n /= i;
 	}
 }
 
@@ -98,7 +99,7 @@ void div_(stack_t **stack, unsigned int line_number)
  */
 void mod_(stack_t **stack, unsigned int line_number)
 {
-	int mod = 0;
+	int i = 0;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -118,8 +119,8 @@ void mod_(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		mod = (*stack)->n;
+		i = (*stack)->n;
 		pop_(stack, line_number);
-		(*stack)->n %= mod;
+		(*stack)->n %= i;
 	}
 }
