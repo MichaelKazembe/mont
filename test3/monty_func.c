@@ -2,7 +2,7 @@
 /**
  * read_file - reads a bytecode file & runs cmds
  * @filename: pathname to a file
- * @stack: pointer to the top of the stack
+ * @stack: pointer to top of stack
  */
 void read_file(char *filename, stack_t **stack)
 {
@@ -130,7 +130,7 @@ char *parse_line(char *line, stack_t **stack, unsigned int line_number)
 		arg = strtok(NULL, "\n ");
 		if (is_integer(arg) == 1 && arg != NULL)
 		{
-			var_global.push_arg = atoi(arg);
+			var_global.push_args = atoi(arg);
 		}
 		else
 		{
