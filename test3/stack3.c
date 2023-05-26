@@ -13,12 +13,12 @@ void pstr_(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 
-	while (tmp)
+	while (temp)
 	{
 		num = temp->n;
-		if (c == 0 || isalpha_(c) == 0)
+		if (num == 0 || isalpha_(num) == 0)
 			break;
-		putchar(c);
+		putchar(num);
 		temp = temp->next;
 	}
 	putchar('\n');
@@ -75,5 +75,5 @@ void rotr_(stack_t **stack, unsigned int line_number)
 		run->next->n = run->n;
 	}
 
-	run->n = aux1num;
+	run->n = num;
 }
