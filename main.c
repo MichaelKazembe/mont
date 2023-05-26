@@ -11,7 +11,7 @@ global_var varg;
 int main(int ac, char **av)
 {
 	stack_t *stack;
-	
+
 	stack = NULL;
 	if (ac != 2)
 	{
