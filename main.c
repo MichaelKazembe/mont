@@ -3,7 +3,7 @@
 global_var varg;
 /**
  * main - main driver func for program
- * @ac: int num of args
+ * @ac: int number of args
  * @av: opcode file
  * Return: 0
  */
