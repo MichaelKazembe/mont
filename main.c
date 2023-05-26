@@ -1,5 +1,5 @@
 #include "monty.h"
-global_var varg;
+global_var varg = {0, NULL};
 /**
  * main - main driver func for program
  * @ac: int num of args
@@ -10,7 +10,7 @@ global_var varg;
 int main(int ac, char **av)
 {
 	stack_t *stack;
-	varg = 0;
+	
 	stack = NULL;
 	if (ac != 2)
 	{
