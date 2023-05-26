@@ -70,8 +70,6 @@ instructs_func get_opcod_func(char *str)
 		{"pstr", pstr_},
 		{"rotl", rotl_},
 		{"rotr", rotr_},
-		{"stack", f_stack},
-		{"queue", f_queue},
 		{NULL, NULL},
 	};
 
