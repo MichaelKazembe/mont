@@ -72,6 +72,8 @@ void swap_(stack_t **stack, unsigned int line_number);
 void nop_(stack_t **stack, unsigned int line_number);
 void rotl_(stack_t **stack, unsigned int line_number);
 void rotr_(stack_t **stack, unsigned int line_number);
+void f_queue(stack_t **head, unsigned int counter);
+void f_stack(stack_t **head, unsigned int counter);
 
 /*string ASCII functions*/
 void pchar_(stack_t **stack, unsigned int line_number);
