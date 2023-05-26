@@ -53,6 +53,7 @@ typedef struct global_variable
 	FILE *file;
 	int push_args;
 	char *buffer;
+	int lifi;
 } global_var;
 
 extern global_var varg;
