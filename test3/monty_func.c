@@ -40,7 +40,7 @@ void read_file(char *filename, stack_t **stack)
 		line_count++;
 	}
 	free(varg.buffer);
-	check = fclose(varg.file);
+	checks = fclose(varg.file);
 	if (checks == -1)
 		exit(-1);
 }
