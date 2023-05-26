@@ -1,6 +1,6 @@
 #include "monty.h"
 
-global_var varg = {0, NULL, NULL, NULL};
+global_var varg;
 
 /**
  * main - main driver func for program
