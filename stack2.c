@@ -30,7 +30,7 @@ void swap_(stack_t **stack, unsigned int line_number)
 void add_(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
-	int sum = 0; 
+	int sum = 0;
 	int i = 0;
 
 	if (temp == NULL)
